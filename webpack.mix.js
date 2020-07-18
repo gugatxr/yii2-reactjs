@@ -11,7 +11,21 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
+// mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
+
+// se quiser que o build seja versionado. Salve os dados em outra pasta. Exemplo
+// mix.react('frontend/js/todo/todo.jsx', 'web/js/todo.js');
+
+mix.react('frontend/js/todo/todo.jsx', 'web/assets/todo.js');
+
+// Aqui extrai o react para um arquivo separado.
+// Assim tu evita de ficar carregando diversas vezes
+// Caso seja utilizado vários componentes
+// Se tirar a linha de baixo o arquivo todo.js terá tudo que precisa pra ser executado.
+// Quando fica extraído é gerado dois arquivos manifest.js e vendor.js
+// Ambos estão inclusos no assets/AppAsset.php
+
+mix.extract(['react', 'react-dom']);
 
 // Full API
 // mix.js(src, output);

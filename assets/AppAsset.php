@@ -22,10 +22,14 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
     ];
+
+    // aqui é incluido somente o react separado
     public $js = [
+        'assets/manifest.js',
+        'assets/vendor.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        // 'yii\web\YiiAsset',
+        // 'yii\bootstrap\BootstrapAsset',
     ];
 }
